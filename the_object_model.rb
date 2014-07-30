@@ -20,3 +20,5 @@ end
 jeff = Human.new
 jeff.eat("Ramen")
 
+Modules can also be used for namespacing.
+
