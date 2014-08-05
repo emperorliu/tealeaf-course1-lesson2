@@ -48,6 +48,16 @@ class Vehicle
   def self.gas_mileage(gallons, miles)
     puts "#{miles / gallons} miles per gallon of gas"
   end
+
+  def print_out_age
+    puts "My car is #{age} years old"
+  end
+
+  private
+
+  def age
+    Time.now.year - self.year.to_i
+  end
 end
 
 
@@ -91,3 +101,35 @@ puts "---------"
 puts "My Truck lookup"
 puts MyTruck.ancestors
 puts "---------"
+
+puts my_car.print_out_age
+
+
+puts " # 2 -----------------------"
+
+class Student
+
+  def initialize(name, grade)
+    @name = name
+    @grade = grade 
+  end
+
+  def better_grade_than?(other_student)
+    grade > other_student.grade
+  end
+
+  protected
+
+  def grade
+    @grade
+  end
+end
+
+joe = Student.new("Joe", 93)
+bob = Student.new("Bob", 78)
+
+puts joe.better_grade_than?(bob)
+
+puts " # 3 ---------------------"
+
+puts "The method 'hi' is private and cannot be called by the object outside the class. In order to fix it, you can make it a public method."
