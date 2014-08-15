@@ -22,7 +22,7 @@ the setter method is being called on the user name method, changing the user nam
 
 4. attr_accessor allows you to use the getter and setter methods on an instant variable.
 
-5. Dog.some_method would be calling the some_method method on the Dog class.
+5. Dog.some_method would be calling the some_method method on the Dog class. (a class method)
 
 6. Subclassing refers to a "is-a" relationship, and modules refer to a "has-a" relationship.
 
