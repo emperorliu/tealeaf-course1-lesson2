@@ -75,7 +75,7 @@ class Card
   end
 
   def to_s
-    "This is the #{value} of #{suit}"
+    "the #{value} of #{suit}"
   end
 
 end
@@ -178,7 +178,9 @@ class Game
 
   def show_flop
     player.show_hand
+    puts ""
     dealer.show_flop
+    puts ""
   end
 
   def blackjack_or_bust?(player_or_dealer)
@@ -206,6 +208,7 @@ class Game
     while !player.is_busted?
       puts "What would you like to do? 1) hit 2) stay"
       response = gets.chomp
+      puts ""
 
       if !['1', '2'].include?(response)
         puts "Error: you must enter 1 or 2"
@@ -221,14 +224,17 @@ class Game
       puts "Dealing card to #{player.name}: #{new_card}"
       player.add_card(new_card)
       puts "#{player.name}'s total is now: #{player.total}"
+      puts ""
 
       blackjack_or_bust?(player)
     end
     puts "#{player.name} stays at #{player.total}"
+    puts ""
   end
 
   def dealer_turn
     puts "#{dealer.name}'s turn."
+    puts "Dealer's second card is #{dealer.cards[0]} with a total of #{dealer.total}"
 
     blackjack_or_bust?(dealer)
     while dealer.total < DEALER_HIT_MIN
@@ -258,6 +264,7 @@ class Game
     puts ""
     puts "Wanna play again? 1) yes 2) no"
     if gets.chomp == '1'
+      puts ""
       puts "Starting new game..."
       puts ""
       deck = Deck.new
