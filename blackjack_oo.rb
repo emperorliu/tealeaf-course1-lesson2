@@ -82,7 +82,7 @@ end
 
 module Hand
   def show_hand
-    puts " #{name}'s hand "
+    puts "#{name}'s hand "
     cards.each do |card|
       puts "=> #{card}"
     end
@@ -167,6 +167,9 @@ class Game
   def set_player_name
     puts "What is your name?"
     player.name = gets.chomp
+    puts ""
+    puts "Welcome, #{player.name}"
+    puts ""
   end
 
   def deal_cards
@@ -264,9 +267,9 @@ class Game
     puts ""
     puts "Wanna play again? 1) yes 2) no"
     if gets.chomp == '1'
-      puts ""
+      puts "--------------------"
       puts "Starting new game..."
-      puts ""
+      puts "--------------------"
       deck = Deck.new
       player.cards = []
       dealer.cards = []
